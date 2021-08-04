@@ -1,8 +1,12 @@
 const express = require('express');
+const helmet = require('helmet');
+const { logger } = require('./middleware/middleware')
 
 const server = express();
+server.use(express.json())
+server.use(helmet())
+server.use(logger)
 
-// remember express by default cannot parse JSON in request bodies
 
 // global middlewares and the user's router need to be connected here
 

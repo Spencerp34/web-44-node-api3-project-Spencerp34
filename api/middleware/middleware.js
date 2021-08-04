@@ -1,9 +1,11 @@
 function logger(req, res, next) {
-  // DO YOUR MAGIC
+  console.log(`hitting ${req.method} ${req.originalUrl} at ${new Date().toLocaleString()}`)
+  next()
 }
 
 function validateUserId(req, res, next) {
-  // DO YOUR MAGIC
+  const { id } = req.params
+  
 }
 
 function validateUser(req, res, next) {
@@ -15,3 +17,9 @@ function validatePost(req, res, next) {
 }
 
 // do not forget to expose these functions to other modules
+module.exports = {
+  logger,
+  validateUserId,
+  validateUser,
+  validatePost
+}
