@@ -1,11 +1,14 @@
 const express = require('express');
 const helmet = require('helmet');
 const { logger } = require('./middleware/middleware')
-
+const usersRouter = require('./users/users-router')
 const server = express();
+
+
 server.use(express.json())
 server.use(helmet())
 server.use(logger)
+server.use('/api/users', usersRouter);
 
 
 // global middlewares and the user's router need to be connected here
